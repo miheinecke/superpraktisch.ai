@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superpraktisch.ai – Dein AI-Team selbstgebaut</title>
+<meta name="description" content="Was wäre, wenn du dein AI-Team einfach selber baust? Aline – Michèles KI-Persona – zeigt dir, wie's geht. Schweizer Hochdeutsch, ohne Tech-Studium.">
+
+<!-- Open Graph für Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://miheinecke.github.io/superpraktisch.ai/">
+<meta property="og:title" content="superpraktisch.ai – Dein AI-Team selbstgebaut">
+<meta property="og:description" content="Was wäre, wenn du dein AI-Team einfach selber baust? Ich bin Aline – Michèles KI-Persona. Ich zeig dir, wie's geht.">
+<meta property="og:image" content="https://miheinecke.github.io/superpraktisch.ai/aline-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --sage: #b8cdb4;
+    --sage-deep: #4d6650;
+    --sage-darker: #3a4d3d;
+    --mint: #e6f0e4;
+    --cream: #fbf8f3;
+    --peach: #f4d6c2;
+    --peach-dark: #d99c7a;
+    --peach-deeper: #b8765a;
+    --rose: #ead0d0;
+    --lavender: #e0dce8;
+    --lavender-deep: #6b6188;
+    --ink: #2a2a2a;
+    --ink-soft: #6b6b6b;
+    --line: #e8e2d6;
+    --white-warm: #fdfbf6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--white-warm);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  a { color: var(--sage-deep); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 251, 246, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+  .logo .accent { color: var(--peach-dark); }
+  nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
+  nav a {
+    color: var(--ink);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--sage-deep); text-decoration: none; }
+  .btn-primary {
+    background: var(--sage-deep);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: transform 0.1s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--sage-darker); text-decoration: none; transform: translateY(-1px); }
+  @media (max-width: 780px) {
+    nav ul { gap: 14px; }
+    nav ul li:not(:last-child) { display: none; }
+    .nav-wrap { padding: 14px 20px; }
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .hero-kicker {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--sage-deep);
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage-deep);
+    font-weight: 700;
+  }
+  .hero-lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 30px;
+    max-width: 480px;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink) !important;
+    border: 1.5px solid var(--ink);
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--ink); color: white !important; text-decoration: none; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 36px; }
+    .hero { padding: 60px 0 40px; }
+  }
+  .hero-visual {
+    background: linear-gradient(135deg, var(--mint), var(--peach));
+    border-radius: 24px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual-inner {
+    text-align: center;
+    color: var(--sage-darker);
+    padding: 30px;
+  }
+  .hero-visual-emoji { font-size: 80px; margin-bottom: 10px; display: block; }
+  .hero-visual-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .hero-visual-sub { font-size: 14px; color: var(--ink-soft); }
+  .hero-visual-tag {
+    position: absolute;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .tag-1 { top: 30px; right: 30px; color: var(--peach-deeper); }
+  .tag-2 { bottom: 30px; left: 30px; color: var(--sage-deep); }
+
+  /* SECTIONS */
+  section { padding: 64px 0; }
+  .section-kicker {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--sage-deep);
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 11.5px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--sage-deep); font-weight: 700; }
+  .section-lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 600px) {
+    h2 { font-size: 28px; }
+    section { padding: 48px 0; }
+  }
+
+  /* MENSCH-KI */
+  .mensch-ki { background: var(--cream); }
+  .mk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (max-width: 780px) { .mk-grid { grid-template-columns: 1fr; } }
+  .person-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s;
+  }
+  .person-card:hover { transform: translateY(-2px); }
+  .person-emoji { font-size: 48px; margin-bottom: 14px; }
+  .person-name { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .person-role { color: var(--peach-dark); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; font-weight: 600; }
+  .person-bio { color: var(--ink-soft); font-size: 15px; }
+  .ki-badge {
+    display: inline-block;
+    background: var(--lavender);
+    color: var(--lavender-deep);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* TEAM */
+  .team-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 32px 0 28px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { border-color: var(--sage); }
+  .tab-btn.active {
+    background: var(--sage-deep);
+    border-color: var(--sage-deep);
+    color: white;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .skill-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.04); }
+  .skill-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .skill-status {
+    display: inline-block;
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .status-on { background: var(--mint); color: var(--sage-deep); }
+  .status-training { background: #fff0d4; color: #9c7821; }
+  .status-soon { background: var(--lavender); color: var(--lavender-deep); }
+  .status-private { background: var(--rose); color: #8a5050; }
+  .skill-name { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+  .skill-role { color: var(--ink-soft); font-size: 13px; line-height: 1.45; }
+
+  /* LERNEN */
+  .lernen { background: var(--cream); }
+  .lernen-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 32px 0 28px;
+    flex-wrap: wrap;
+  }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .course-card {
+    background: white;
+    border-radius: 18px;
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    position: relative;
+  }
+  .course-card:hover { transform: translateY(-3px); }
+  .course-card.featured { border-top: 4px solid var(--peach-dark); }
+  .course-card.coming-soon { background: #fafafa; opacity: 0.95; }
+  .course-emoji { font-size: 42px; margin-bottom: 12px; display: block; }
+  .course-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .course-tagline { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 16px; line-height: 1.4; }
+  .course-price {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    margin: 14px 0 4px;
+  }
+  .course-card.featured .course-price { color: var(--peach-deeper); }
+  .course-card.coming-soon .course-price { color: var(--lavender-deep); font-size: 22px; }
+  .course-price-sub { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 18px; }
+  .course-features { list-style: none; padding: 0; margin-bottom: 22px; flex-grow: 1; }
+  .course-features li { padding: 5px 0; font-size: 14px; color: var(--ink); display: flex; align-items: flex-start; gap: 8px; }
+  .course-features li::before { content: "✓"; color: var(--sage-deep); font-weight: 700; flex-shrink: 0; }
+  .course-card.featured .course-features li::before { color: var(--peach-deeper); }
+  .course-card.coming-soon .course-features li::before { color: var(--lavender-deep); content: "○"; }
+  .course-cta {
+    background: var(--sage-deep);
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-align: center;
+    display: block;
+    transition: background 0.2s;
+  }
+  .course-cta:hover { background: var(--sage-darker); text-decoration: none; }
+  .course-card.featured .course-cta { background: var(--peach-deeper); }
+  .course-card.featured .course-cta:hover { background: #9a5d44; }
+  .course-card.coming-soon .course-cta { background: var(--lavender-deep); }
+  .course-card.coming-soon .course-cta:hover { background: #524870; }
+  .badge-soon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--lavender);
+    color: var(--lavender-deep);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* FOKUS-GUIDE */
+  .focus-guide {
+    background: linear-gradient(135deg, var(--mint), var(--cream));
+    border-radius: 24px;
+    padding: 60px 50px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .focus-guide h2 { font-size: 32px; }
+  .focus-guide form {
+    display: flex;
+    gap: 8px;
+    max-width: 480px;
+    margin: 24px auto 0;
+    flex-wrap: wrap;
+  }
+  .focus-guide input[type="email"] {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    font-size: 15px;
+    background: white;
+    font-family: inherit;
+  }
+  .focus-guide input[type="email"]:focus { outline: none; border-color: var(--sage-deep); }
+  .focus-guide button {
+    background: var(--sage-deep);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .focus-guide button:hover { background: var(--sage-darker); }
+  .focus-guide-fine { font-size: 12px; color: var(--ink-soft); margin-top: 14px; }
+
+  /* ÜBER UNS */
+  .about-grid { margin-top: 32px; }
+  .about-text { max-width: 700px; }
+  .about-text p { margin-bottom: 14px; color: var(--ink); font-size: 16px; }
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 28px 0;
+  }
+  @media (max-width: 780px) { .about-split { grid-template-columns: 1fr; } }
+  .split-box {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 24px;
+    border-left: 4px solid var(--sage-deep);
+  }
+  .split-box.ai-side { border-left-color: var(--peach-dark); }
+  .split-label {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .split-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .split-text { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* KONTAKT */
+  .kontakt { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .contact-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+  .contact-card-emoji { font-size: 36px; margin-bottom: 10px; display: block; }
+  .contact-card-title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .contact-card-text { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 14px; }
+  .contact-card a { color: var(--sage-deep); font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0 30px;
+    font-size: 13.5px;
+  }
+  footer a { color: rgba(255,255,255,0.9); }
+  footer a:hover { color: white; }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .footer-meta { font-size: 12px; color: rgba(255,255,255,0.5); }
+  .footer-version { color: rgba(255,255,255,0.4); margin-top: 8px; font-size: 12px; }
+  .ki-disclaimer {
+    background: rgba(255,255,255,0.05);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 18px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== HEADER ====================== -->
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="logo">superpraktisch<span class="accent">.ai</span></a>
+    <nav>
+      <ul>
+        <li><a href="#team">Das Team</a></li>
+        <li><a href="#lernen">Angebote</a></li>
+        <li><a href="#ueber">Über uns</a></li>
+        <li><a href="#kontakt" class="btn-primary">Anfragen →</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-kicker">✦ KI-gestützt · Auf Deutsch · Für Solopreneure</span>
+        <h1>Was wäre, wenn du dein Team einfach <em>selber baust</em>?</h1>
+        <p class="hero-lede">Ich bin Aline — Michèles KI-Persona und das Gesicht von superpraktisch.ai. Ich zeig dir, wie's geht.</p>
+        <div class="hero-ctas">
+          <a href="#fokus-guide" class="btn-primary">Fokus-Guide gratis holen ↓</a>
+          <a href="#team" class="btn-ghost">Das Team kennenlernen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="hero-visual-tag tag-1">✦ Aline · KI-Persona</span>
+        <img src="aline-hero.png" alt="Aline, die KI-Persona von superpraktisch.ai, steht in einem hellen Skandinavien-Office und schaut über die Schulter in die Kamera" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== MENSCH & KI ====================== -->
+<section class="mensch-ki" id="mensch-ki">
+  <div class="container">
+    <span class="section-kicker">✦ Transparenz ist uns wichtig</span>
+    <h2>Mensch &amp; KI. <em>Zusammen stärker.</em></h2>
+    <p class="section-lede">Michèle ist die Gründerin und Macherin hinter superpraktisch.ai. Aline ist ihre KI-Sparring-Partnerin — eine bewusst gestaltete KI-Persona, klar als solche ausgewiesen. Zusammen zeigen sie, was möglich ist — und wie du es selbst aufbauen kannst.</p>
+    <div class="mk-grid">
+      <div class="person-card">
+        <span class="person-emoji">👩‍💻</span>
+        <div class="person-name">Michèle</div>
+        <div class="person-role">Gründerin · Mensch</div>
+        <p class="person-bio">Solopreneuring seit Jahren, Expertin für digitale Prozesse, Mutter, Macherin — und diejenige, die zeigt wie das alles geht.</p>
+      </div>
+      <div class="person-card">
+        <span class="person-emoji">🌿</span>
+        <div class="person-name">Aline <span class="ki-badge">KI-Persona</span></div>
+        <div class="person-role">Brand Voice · KI</div>
+        <p class="person-bio">Das Gesicht von superpraktisch.ai auf Instagram. Klar als KI ausgewiesen — und das Beweis-Beispiel dafür, was du selbst erschaffen kannst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TEAM ====================== -->
+<section id="team">
+  <div class="container">
+    <span class="section-kicker">Das AI-Team</span>
+    <h2>21 aktive Skills. <em>Ein ganzes Büro.</em></h2>
+    <p class="section-lede">Jeder Skill ist spezialisiert, immer verfügbar und kostet kein Gehalt. Das hier ist nicht Magie — das kannst du auch aufbauen.</p>
+
+    <div class="team-tabs" id="teamTabs">
+      <button class="tab-btn active" data-filter="all">Alle</button>
+      <button class="tab-btn" data-filter="management">🧭 Management</button>
+      <button class="tab-btn" data-filter="core">⚙️ Core Skills</button>
+      <button class="tab-btn" data-filter="support">🛠️ Support</button>
+      <button class="tab-btn" data-filter="sub">🔬 Sub-Skills</button>
+    </div>
+
+    <div class="skills-grid" id="skillsGrid">
+
+      <!-- MANAGEMENT LAYER -->
+      <div class="skill-card" data-cat="management">
+        <span class="skill-icon">🧭</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Finn</div>
+        <div class="skill-role">Chief of Staff · Dirigent. Koordiniert alle Skills, priorisiert Aufgaben, plant Projekte. Das strategische Gehirn des Teams.</div>
+      </div>
+      <div class="skill-card" data-cat="management">
+        <span class="skill-icon">🌿</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Aline</div>
+        <div class="skill-role">Brand Voice · KI-Persona. Veredelt alle Texte, die nach aussen gehen, mit der Aline-Stimme. Das Gesicht auf Instagram.</div>
+      </div>
+      <div class="skill-card" data-cat="management">
+        <span class="skill-icon">🚪</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Felix</div>
+        <div class="skill-role">Office Manager · Gatekeeper. Erstkontakt, Onboarding, Verwaltung von Workflows &amp; Tools. Hält das digitale Büro am Laufen.</div>
+      </div>
+      <div class="skill-card" data-cat="management">
+        <span class="skill-icon">✅</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Clara</div>
+        <div class="skill-role">Quality Manager. Prüft alle Outputs intern auf Konsistenz und Markenrichtlinien. Lektorat auf oberster Ebene.</div>
+      </div>
+
+      <!-- CORE -->
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">💰</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Nina</div>
+        <div class="skill-role">Finanzen &amp; Buchhaltung. Rechnungen, Budgets, Kalkulation, Angebote, Mahnwesen, Liquiditätsplanung.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">📋</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Anna</div>
+        <div class="skill-role">Organisation &amp; Projektmanagement. Projektplanung, SOPs, Checklisten, Meeting-Protokolle, Zeitmanagement.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">📱</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Julia</div>
+        <div class="skill-role">Social Media. LinkedIn, Instagram, Redaktionskalender, Hashtags, Community-Management, Strategie.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">✍️</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Lena</div>
+        <div class="skill-role">Content &amp; Text. Blogartikel, Newsletter, Websitetexte, Copywriting, Lektorat, Markenstimme.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">🎨</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Mia</div>
+        <div class="skill-role">Kreativ &amp; Design. Grafiken, Präsentationen, Infografiken, Branding, Layouts, Social-Media-Visuals.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">🔍</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Tobias</div>
+        <div class="skill-role">SEO &amp; Sichtbarkeit. Keyword-Recherche, SEO-Texte, lokale SEO, Content-Cluster, Google-Rankings.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">🔬</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Sarah</div>
+        <div class="skill-role">Research &amp; Analyse. Marktanalyse, Wettbewerb, Trendberichte, Fact-Checking, Toolvergleiche.</div>
+      </div>
+      <div class="skill-card" data-cat="core">
+        <span class="skill-icon">🏠</span>
+        <span class="skill-status status-private">Aktiv · Privat</span>
+        <div class="skill-name">Eva</div>
+        <div class="skill-role">Persönliche Assistentin · Michèles Privat-Skill. Alltagsorganisation, Menüplanung — exklusiv für den privaten Bereich.</div>
+      </div>
+
+      <!-- SUPPORT (geplant Phase 2) -->
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">⚡</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Leo</div>
+        <div class="skill-role">Tech &amp; Automatisierung. Tools, Workflows, Zapier/Make, API-Basics — damit alles reibungslos läuft.</div>
+      </div>
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">💬</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Vera</div>
+        <div class="skill-role">Kundenservice &amp; Kommunikation. Kundenmails, FAQ, Onboarding-Texte, Beziehungspflege — immer freundlich.</div>
+      </div>
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">🎬</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Luca</div>
+        <div class="skill-role">Video &amp; Multimedia. Reels-Konzepte, Video-Skripte, Untertitel, Thumbnail-Texte, Videostrategie.</div>
+      </div>
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">🎯</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Ben</div>
+        <div class="skill-role">Sales &amp; Akquise. Angebote, Pitch-Texte, Follow-ups, Akquise-Mails und Angebotsstrategien.</div>
+      </div>
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">📈</span>
+        <span class="skill-status status-soon">Coming Soon</span>
+        <div class="skill-name">Kai</div>
+        <div class="skill-role">Strategie &amp; Business Development. Businessplanung, Wachstumsstrategien, Positionierung.</div>
+      </div>
+      <div class="skill-card" data-cat="support">
+        <span class="skill-icon">🛒</span>
+        <span class="skill-status status-soon">Coming Soon</span>
+        <div class="skill-name">Emma</div>
+        <div class="skill-role">E-Commerce &amp; Digitale Produkte. Shop-Texte, Produktbeschreibungen, Preisstrategien, Launch-Planung.</div>
+      </div>
+
+      <!-- SUB-SKILLS -->
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">✏️</span>
+        <span class="skill-status status-on">Aktiv</span>
+        <div class="skill-name">Hanna</div>
+        <div class="skill-role">Salespages · unter Lena. Verkaufsseiten, Tentary-Produkttexte, Hero-Sections, die konvertieren — ohne aufdringlich zu wirken.</div>
+      </div>
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">📧</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Maya</div>
+        <div class="skill-role">Newsletter-Spezialistin · unter Lena. Brevo, Mailchimp, E-Mail-Sequenzen — vom Betreff bis zur Abmeldeseite.</div>
+      </div>
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">🎞️</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Zoe</div>
+        <div class="skill-role">Reels &amp; Stories · unter Julia. Hook, Format, Trends — Reels die wirklich gesehen werden.</div>
+      </div>
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">🤖</span>
+        <span class="skill-status status-training">In Ausbildung</span>
+        <div class="skill-name">Dani</div>
+        <div class="skill-role">Prompt Engineering · unter Finn. Prompts schreiben, testen, dokumentieren — damit alle Skills optimal funktionieren.</div>
+      </div>
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">💼</span>
+        <span class="skill-status status-soon">Coming Soon</span>
+        <div class="skill-name">Max</div>
+        <div class="skill-role">LinkedIn-Experte · unter Julia. B2B, Thought Leadership, DMs — LinkedIn als Akquise-Kanal nutzen.</div>
+      </div>
+      <div class="skill-card" data-cat="sub">
+        <span class="skill-icon">🎨</span>
+        <span class="skill-status status-soon">Coming Soon</span>
+        <div class="skill-name">Sina</div>
+        <div class="skill-role">Canva Pro Vorlagen · unter Mia. Brand Templates, Vorlagen-Bibliotheken, wiederverwendbare Designs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== LERNEN ====================== -->
+<section class="lernen" id="lernen">
+  <div class="container">
+    <span class="section-kicker">Was ich anbiete</span>
+    <h2>Lernen mit mir. <em>In deinem Tempo.</em></h2>
+    <p class="section-lede">Ob du selbst ein AI-Team aufbauen willst, oder als VA dein Angebot erweitern möchtest — hier findest du das passende Format.</p>
+
+    <div class="courses-grid">
+      <!-- KURS 1 -->
+      <div class="course-card">
+        <span class="course-emoji">🌱</span>
+        <div class="course-title">Dein erster AI-Mitarbeiter in 4 Wochen</div>
+        <div class="course-tagline">Selbstlernkurs · 5 Module · 4 Wochen Cadenz</div>
+        <div class="course-price">CHF 97</div>
+        <div class="course-price-sub">Einmalig · 14 Tage Geld-zurück</div>
+        <ul class="course-features">
+          <li>Was ist ein AI-Skill und wie funktioniert er?</li>
+          <li>Deinen ersten Skill aufbauen &amp; testen</li>
+          <li>Im Alltag einsetzen — sofort</li>
+          <li>Prompt-Vorlagen zum Mitnehmen</li>
+          <li>Für Anfängerinnen ohne Vorkenntnisse</li>
+        </ul>
+        <a href="#" class="course-cta">Jetzt starten →</a>
+      </div>
+
+      <!-- KURS 2 -->
+      <div class="course-card featured">
+        <span class="course-emoji">🚀</span>
+        <div class="course-title">Dein AI-Team</div>
+        <div class="course-tagline">Vollkurs · ~10 Module · Orchestrierung &amp; Workflows</div>
+        <div class="course-price">CHF 297</div>
+        <div class="course-price-sub">Einmalig · 14 Tage Geld-zurück</div>
+        <ul class="course-features">
+          <li>Mehrere Skills orchestrieren wie ein echtes Team</li>
+          <li>Core Skills, Sub-Skills, Workflows</li>
+          <li>Premium Skill-Bibliothek (10+ fertige Beispiele)</li>
+          <li>Workflow-Bibliothek (20+ Multi-Persona-Vorlagen)</li>
+          <li>Für Selbstständige &amp; VAs · Kurs 1 als Basis empfohlen</li>
+        </ul>
+        <a href="#" class="course-cta">Jetzt anmelden →</a>
+      </div>
+
+      <!-- KURS 3 -->
+      <div class="course-card coming-soon">
+        <span class="badge-soon">Coming Soon</span>
+        <span class="course-emoji">💼</span>
+        <div class="course-title">AI-Agentur aufbauen</div>
+        <div class="course-tagline">Intensivkurs · Für VAs &amp; Fortgeschrittene</div>
+        <div class="course-price">CHF 497</div>
+        <div class="course-price-sub">Geplant Q3 2026</div>
+        <ul class="course-features">
+          <li>AI als Differenzierungsmerkmal für dein VA-Business</li>
+          <li>Skills entwickeln &amp; Kunden beraten</li>
+          <li>Eigene Pakete schnüren &amp; anbieten</li>
+          <li>Businessmodell-Vorlage inklusive</li>
+        </ul>
+        <a href="#fokus-guide" class="course-cta">Auf Warteliste setzen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOKUS-GUIDE ====================== -->
+<section id="fokus-guide">
+  <div class="container">
+    <div class="focus-guide">
+      <span class="section-kicker">Gratis Einstieg</span>
+      <h2>Fokus-Guide holen. <em>Kostenlos.</em></h2>
+      <p class="section-lede" style="margin: 14px auto 0; max-width: 540px;">„Fokus finden in 10 Minuten" — meine erste praktische AI-Methode, direkt in dein Postfach. Plus: regelmässige Tipps, wie du KI in deinen Alltag integrierst.</p>
+      <form>
+        <input type="email" placeholder="Deine E-Mail-Adresse" required>
+        <button type="submit">Holen →</button>
+      </form>
+      <p class="focus-guide-fine">Kein Spam. Jederzeit abmeldbar. DSGVO-konform via Brevo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== ÜBER UNS ====================== -->
+<section id="ueber">
+  <div class="container">
+    <span class="section-kicker">Wer steckt dahinter</span>
+    <h2>Michèle &amp; <em>Aline.</em></h2>
+    <div class="about-text">
+      <p>Ich bin Michèle — Solopreneuring seit Jahren, Mutter von zwei kleinen Töchtern und überzeugt davon, dass KI nicht kompliziert sein muss.</p>
+      <p>Ich habe mir ein komplettes AI-Team aufgebaut, das mir täglich hilft. superpraktisch.ai ist mein Weg, dir zu zeigen wie du das auch kannst.</p>
+      <p>Aline ist meine KI-Sparring-Partnerin — bewusst erschaffen, klar als KI ausgewiesen, und das lebende Beispiel dafür, was möglich ist.</p>
+    </div>
+    <div class="about-split">
+      <div class="split-box">
+        <div class="split-label">Done-for-You</div>
+        <div class="split-title">superpraktisch.ch</div>
+        <p class="split-text">Ich arbeite für Kunden (auch mit KI). Konkrete Aufgaben, fertige Outputs.</p>
+      </div>
+      <div class="split-box ai-side">
+        <div class="split-label">Bildung &amp; DIY</div>
+        <div class="split-title">superpraktisch.ai</div>
+        <p class="split-text">Ich zeige dir, wie du es selbst machst. Kurse, Vorlagen, Wissen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== KONTAKT ====================== -->
+<section class="kontakt" id="kontakt">
+  <div class="container">
+    <span class="section-kicker">Los geht's</span>
+    <h2>Fragen? Ideen? <em>Einfach melden.</em></h2>
+    <p class="section-lede">Kein Schnickschnack, kein Sales-Funnel — einfach ein echtes Gespräch. Ich antworte so schnell ich kann, ohne garantiertes Zeitfenster.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-card-emoji">✉️</span>
+        <div class="contact-card-title">E-Mail</div>
+        <p class="contact-card-text">Für Kursanfragen, Workshops und alles andere.</p>
+        <a href="mailto:hallo@superpraktisch.ai">hallo@superpraktisch.ai →</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-emoji">📸</span>
+        <div class="contact-card-title">Instagram</div>
+        <p class="contact-card-text">Aline und ich sind aktiv — schau vorbei, schreib uns.</p>
+        <a href="https://instagram.com/superpraktisch.ai" target="_blank">@superpraktisch.ai →</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card-emoji">🌐</span>
+        <div class="contact-card-title">superpraktisch.ch</div>
+        <p class="contact-card-text">Du brauchst eine VA für konkrete Aufgaben?</p>
+        <a href="https://superpraktisch.ch" target="_blank">superpraktisch.ch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <strong>superpraktisch.ai</strong> · von Michèle Heinecke<br>
+        Langnau am Albis · Schweiz
+      </div>
+      <div>
+        <a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://superpraktisch.ch">superpraktisch.ch</a>
+      </div>
+    </div>
+    <div class="ki-disclaimer">
+      <strong>KI-Transparenz:</strong> Aline ist eine KI-Persona. Alle KI-generierten Inhalte sind als solche gekennzeichnet. Wenn du dazu Fragen hast, melde dich gern unter <a href="mailto:hallo@superpraktisch.ai">hallo@superpraktisch.ai</a>.
+    </div>
+    <div class="footer-version">Aktuelle Version Mai 2026 · v2.0</div>
+  </div>
+</footer>
+
+<script>
+  // Team Skills Filter
+  (function() {
+    const tabs = document.querySelectorAll('#teamTabs .tab-btn');
+    const cards = document.querySelectorAll('#skillsGrid .skill-card');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
