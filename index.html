@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superpraktisch.ai – Dein AI-Team für Solopreneure</title>
+<meta name="description" content="Ich zeige Solopreneuren und virtuellen Assistentinnen, wie sie mit KI ein smartes Team aufbauen. Deutsch. Praktisch. Superpraktisch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:      #faf7f2;
+  --warm-white: #ffffff;
+  --sage:       #8fb8ad;
+  --sage-light: #c8deda;
+  --sage-dark:  #5a9089;
+  --mint:       #e8f4f1;
+  --lilac:      #d4cce8;
+  --lilac-dark: #9b8fc4;
+  --peach:      #f0ddd0;
+  --peach-dark: #c8895a;
+  --stone:      #3d3a35;
+  --muted:      #7a756e;
+  --text:       #2a2723;
+  --radius:     18px;
+  --radius-sm:  10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+h3 { font-size: 1.25rem; }
+p  { color: var(--muted); }
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+section { padding: 100px 0; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(143,184,173,0.2);
+  padding: 18px 0;
+}
+.nav-inner {
+  display: flex; align-items: center; gap: 32px;
+  max-width: 1100px; margin: 0 auto; padding: 0 28px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+  margin-right: auto;
+}
+.nav-logo span { color: var(--sage-dark); }
+nav a {
+  font-size: 14px; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+nav a:hover { color: var(--sage-dark); }
+.nav-cta {
+  background: var(--sage-dark) !important;
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--sage) !important; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+
+/* ── HERO ── */
+.hero {
+  padding-top: 140px;
+  padding-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -200px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -150px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--lilac) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--mint);
+  border: 1px solid var(--sage-light);
+  color: var(--sage-dark);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 50px;
+  margin-bottom: 24px;
+}
+.hero-tag::before { content: '✦'; }
+.hero h1 { margin-bottom: 24px; color: var(--text); }
+.hero h1 em { font-style: italic; color: var(--sage-dark); }
+.hero-sub {
+  font-size: 1.1rem; line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--sage-dark);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600; font-size: 15px;
+  text-decoration: none;
+  transition: all .25s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--stone); transform: translateY(-2px); }
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--sage);
+  color: var(--sage-dark);
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 500; font-size: 15px;
+  text-decoration: none;
+  transition: all .25s;
+  display: inline-block;
+}
+.btn-secondary:hover { background: var(--mint); }
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-video-wrap {
+  position: relative;
+  width: 340px; height: 440px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(61,58,53,0.18);
+}
+.hero-video-wrap video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-video-label {
+  position: absolute;
+  bottom: 16px; left: 50%; transform: translateX(-50%);
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px; font-weight: 600;
+  color: var(--sage-dark);
+  white-space: nowrap;
+}
+.hero-badge {
+  position: absolute;
+  top: -20px; right: -20px;
+  background: var(--lilac);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  max-width: 160px;
+  text-align: center;
+}
+.hero-badge strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 2px; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 10px;
+}
+.section-title { margin-bottom: 12px; }
+.section-sub { max-width: 560px; margin-bottom: 56px; }
+
+/* ── DUO SECTION ── */
+.duo {
+  background: var(--stone);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.duo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(143,184,173,0.15) 0%, transparent 60%);
+}
+.duo-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.duo h2 { color: white; margin-bottom: 20px; }
+.duo p { color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+.duo-cards { display: flex; flex-direction: column; gap: 16px; }
+.duo-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.duo-card-icon {
+  width: 44px; height: 44px; min-width: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.duo-card h4 { color: white; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.duo-card p { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; }
+.duo-videos {
+  display: flex; gap: 20px; justify-content: center;
+}
+.duo-video-wrap {
+  border-radius: 22px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  position: relative;
+}
+.duo-video-wrap:first-child { width: 200px; height: 280px; margin-top: 40px; }
+.duo-video-wrap:last-child  { width: 200px; height: 280px; }
+.duo-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.duo-video-label {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  color: white; font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: 50px; white-space: nowrap;
+}
+.ki-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(212,204,232,0.2);
+  border: 1px solid rgba(212,204,232,0.3);
+  color: var(--lilac);
+  font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+/* ── TEAM ── */
+.team { background: var(--warm-white); }
+.team-filter {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.filter-btn {
+  padding: 8px 18px; border-radius: 50px;
+  border: 1.5px solid var(--sage-light);
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all .2s;
+  font-family: 'Outfit', sans-serif;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--sage-dark); color: white; border-color: var(--sage-dark);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.team-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid transparent;
+  transition: all .25s;
+  cursor: default;
+  position: relative;
+}
+.team-card:hover {
+  border-color: var(--sage-light);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+}
+.team-card-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 12px;
+}
+.team-emoji {
+  width: 52px; height: 52px;
+  background: var(--mint);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.team-status {
+  font-size: 11px; font-weight: 600; padding: 3px 10px;
+  border-radius: 50px;
+}
+.status-active   { background: #d4edda; color: #2d7a3a; }
+.status-soon     { background: var(--peach); color: var(--peach-dark); }
+.status-building { background: var(--lilac); color: var(--lilac-dark); }
+.team-card h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 2px; }
+.team-card .role { font-size: 12px; color: var(--sage-dark); font-weight: 600; margin-bottom: 10px; }
+.team-card p { font-size: 13px; line-height: 1.6; }
+.team-tier {
+  position: absolute; top: 24px; right: 24px;
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.tier-meta    { background: var(--stone); }
+.tier-core    { background: var(--sage-dark); }
+.tier-support { background: var(--lilac-dark); }
+.tier-sub     { background: var(--peach-dark); }
+[data-tier] { transition: opacity .3s, transform .3s; }
+[data-tier].hidden { display: none; }
+
+/* ── ANGEBOTE ── */
+.angebote { background: var(--cream); }
+.angebote-tabs {
+  display: flex; gap: 0; margin-bottom: 40px;
+  background: var(--mint);
+  border-radius: 50px; padding: 5px;
+  width: fit-content;
+}
+.tab-btn {
+  padding: 10px 24px; border-radius: 50px;
+  border: none; background: transparent;
+  color: var(--muted); font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all .2s;
+  font-family: 'Outfit', sans-serif;
+}
+.tab-btn.active { background: white; color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.angebote-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.angebot-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 32px;
+  border: 1.5px solid transparent;
+  transition: all .25s;
+  position: relative;
+}
+.angebot-card:hover { border-color: var(--sage-light); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+.angebot-card.featured {
+  border-color: var(--sage-dark);
+  background: linear-gradient(135deg, var(--mint) 0%, white 100%);
+}
+.angebot-card.featured::before {
+  content: 'Empfohlen';
+  position: absolute; top: -12px; left: 24px;
+  background: var(--sage-dark); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 12px; border-radius: 50px;
+}
+.angebot-icon { font-size: 28px; margin-bottom: 16px; }
+.angebot-card h3 { font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 4px; }
+.angebot-card .subtitle { font-size: 12px; color: var(--sage-dark); font-weight: 600; margin-bottom: 16px; }
+.angebot-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; color: var(--text); margin-bottom: 4px;
+}
+.angebot-price-note { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+.angebot-features { list-style: none; margin-bottom: 24px; }
+.angebot-features li {
+  font-size: 13.5px; color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 1px solid #f0ece6;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.angebot-features li::before { content: '✓'; color: var(--sage-dark); font-weight: 700; flex-shrink: 0; }
+.angebot-features li:last-child { border-bottom: none; }
+.btn-card {
+  display: block; text-align: center;
+  padding: 12px; border-radius: 50px;
+  font-weight: 600; font-size: 14px;
+  text-decoration: none; transition: all .2s;
+  background: var(--mint); color: var(--sage-dark);
+}
+.btn-card:hover { background: var(--sage-dark); color: white; }
+.featured .btn-card { background: var(--sage-dark); color: white; }
+.featured .btn-card:hover { background: var(--stone); }
+
+/* ── NEWSLETTER ── */
+.newsletter {
+  background: linear-gradient(135deg, var(--sage-light) 0%, var(--lilac) 100%);
+  text-align: center;
+  padding: 80px 0;
+}
+.newsletter h2 { margin-bottom: 12px; }
+.newsletter p { margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.nl-form {
+  display: flex; gap: 12px; max-width: 460px; margin: 0 auto;
+  flex-wrap: wrap; justify-content: center;
+}
+.nl-form input {
+  flex: 1; min-width: 220px;
+  padding: 14px 20px; border-radius: 50px;
+  border: none; font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  outline: none;
+}
+.nl-form button {
+  padding: 14px 28px; border-radius: 50px;
+  border: none; background: var(--stone); color: white;
+  font-size: 15px; font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer; transition: all .2s;
+}
+.nl-form button:hover { background: var(--sage-dark); }
+.nl-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+/* ── UEBER ── */
+.ueber { background: var(--warm-white); }
+.ueber-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.ueber-videos {
+  display: flex; gap: 20px; justify-content: center;
+}
+.ueber-video-wrap {
+  border-radius: 22px; overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+}
+.ueber-video-wrap:first-child { width: 190px; height: 260px; margin-top: 32px; }
+.ueber-video-wrap:last-child  { width: 190px; height: 260px; }
+.ueber-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.ueber-text h2 { margin-bottom: 16px; }
+.ueber-text p  { margin-bottom: 16px; }
+.ueber-highlight {
+  background: var(--mint);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-top: 24px;
+  font-size: 14px; color: var(--sage-dark); font-weight: 500;
+}
+
+/* ── KONTAKT ── */
+.kontakt { background: var(--cream); text-align: center; }
+.kontakt h2 { margin-bottom: 12px; }
+.kontakt p { margin-bottom: 40px; }
+.kontakt-options {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+.kontakt-card {
+  background: white; border-radius: var(--radius);
+  padding: 28px 32px; text-align: left;
+  border: 1px solid #ece8e2;
+  min-width: 220px;
+  transition: all .25s;
+}
+.kontakt-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.kontakt-card .icon { font-size: 28px; margin-bottom: 12px; }
+.kontakt-card h4 { font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 4px; }
+.kontakt-card p { font-size: 13px; }
+.kontakt-card a {
+  display: inline-block; margin-top: 12px;
+  font-size: 13px; font-weight: 600;
+  color: var(--sage-dark); text-decoration: none;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--stone); color: rgba(255,255,255,0.5);
+  padding: 40px 0; text-align: center;
+  font-size: 13px;
+}
+footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+footer strong { color: rgba(255,255,255,0.9); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp .7s ease forwards; }
+.fade-up-2 { animation: fadeUp .7s .15s ease both; }
+.fade-up-3 { animation: fadeUp .7s .3s  ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-inner, .duo-inner, .ueber-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .duo-videos { justify-content: center; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  section { padding: 70px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">superpraktisch<span>.ai</span></a>
+    <div class="nav-links">
+      <a href="#team">Das Team</a>
+      <a href="#angebote">Angebote</a>
+      <a href="#lernen">Lernen</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#kontakt" class="nav-cta">Anfragen →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-tag">KI-gestützt · auf Deutsch · für Solopreneure</div>
+        <h1>Dein <em>smartes AI-Team</em> — ohne Overhead.</h1>
+        <p class="hero-sub">Ich zeige Solopreneuren, Freelancern und virtuellen Assistentinnen, wie sie mit KI ein ganzes Team aufbauen. Skalierbar. Praktisch. Superpraktisch.</p>
+        <div class="hero-btns">
+          <a href="#newsletter" class="btn-primary">Fokus-Guide gratis holen ↓</a>
+          <a href="#team" class="btn-secondary">Das Team kennenlernen</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-up-2">
+        <div class="hero-video-wrap">
+          <video src="aline.mp4" autoplay muted loop playsinline></video>
+          <div class="hero-video-label">✦ Aline · KI-Persona</div>
+        </div>
+        <div class="hero-badge">
+          <strong>20+ Skills</strong>
+          Ein ganzes Team — immer verfügbar
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DUO -->
+<section class="duo" id="ueber-duo">
+  <div class="container">
+    <div class="duo-inner">
+      <div class="duo-videos">
+        <div class="duo-video-wrap">
+          <video src="michele.mp4" autoplay muted loop playsinline></video>
+          <div class="duo-video-label">Michèle · Gründerin</div>
+        </div>
+        <div class="duo-video-wrap">
+          <video src="aline.mp4" autoplay muted loop playsinline></video>
+          <div class="duo-video-label">Aline · KI-Persona</div>
+        </div>
+      </div>
+      <div>
+        <div class="ki-badge">✦ Transparenz ist uns wichtig</div>
+        <h2>Mensch & KI.<br>Zusammen stärker.</h2>
+        <p>Michèle ist die Gründerin und Macherin hinter superpraktisch.ai. Aline ist ihre KI-Sparring-Partnerin — eine bewusst gestaltete KI-Persona, klar als solche ausgewiesen.</p>
+        <p>Zusammen zeigen sie, was möglich ist — und wie du es selbst aufbauen kannst.</p>
+        <div class="duo-cards">
+          <div class="duo-card">
+            <div class="duo-card-icon" style="background:rgba(143,184,173,0.2)">👩‍💻</div>
+            <div>
+              <h4>Michèle</h4>
+              <p>Solopreneuring seit Jahren, Expertin für digitale Prozesse, Mutter, Macherin — und diejenige, die zeigt wie das alles geht.</p>
+            </div>
+          </div>
+          <div class="duo-card">
+            <div class="duo-card-icon" style="background:rgba(212,204,232,0.2)">🤖</div>
+            <div>
+              <h4>Aline <span style="font-size:10px;opacity:0.6;font-weight:400">· KI-Persona</span></h4>
+              <p>Das Gesicht von superpraktisch.ai auf Instagram. Klar als KI ausgewiesen — und das Beweis-Beispiel dafür, was du selbst erschaffen kannst.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label">Das AI-Team</div>
+    <h2 class="section-title">20+ Skills.<br>Ein ganzes Büro.</h2>
+    <p class="section-sub">Jeder Skill ist spezialisiert, immer verfügbar und kostet kein Gehalt. Das hier ist nicht Magie — das kannst du auch aufbauen.</p>
+
+    <div class="team-filter">
+      <button class="filter-btn active" onclick="filterTeam('all', this)">Alle</button>
+      <button class="filter-btn" onclick="filterTeam('meta', this)">🧭 Management</button>
+      <button class="filter-btn" onclick="filterTeam('core', this)">⚙️ Core Skills</button>
+      <button class="filter-btn" onclick="filterTeam('support', this)">🛠️ Support</button>
+      <button class="filter-btn" onclick="filterTeam('sub', this)">🔬 Subskills</button>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- META -->
+      <div class="team-card" data-tier="meta">
+        <div class="team-card-top">
+          <div class="team-emoji">🧭</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <div class="tier-meta" style="position:absolute;top:24px;right:60px;width:8px;height:8px;border-radius:50%;background:var(--stone)"></div>
+        <h3>MAX</h3>
+        <div class="role">Team-Manager · Chief of Staff</div>
+        <p>Koordiniert alle Skills, priorisiert Aufgaben, plant Projekte und delegiert intern. Das strategische Gehirn des Teams.</p>
+      </div>
+
+      <div class="team-card" data-tier="meta">
+        <div class="team-card-top">
+          <div class="team-emoji">🚪</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>FELIX</h3>
+        <div class="role">Office Manager · Gatekeeper</div>
+        <p>Erstkontakt, Onboarding, Verwaltung von Workflows & Tools. Hält das digitale Büro am Laufen.</p>
+      </div>
+
+      <div class="team-card" data-tier="meta">
+        <div class="team-card-top">
+          <div class="team-emoji">✅</div>
+          <span class="team-status status-building">In Ausbildung</span>
+        </div>
+        <h3>CLARA</h3>
+        <div class="role">Quality Manager</div>
+        <p>Prüft alle Outputs auf Qualität, Konsistenz und Markenstimme. Lektorat auf oberster Ebene.</p>
+      </div>
+
+      <!-- CORE -->
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">💰</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Nina</h3>
+        <div class="role">Finanzen & Buchhaltung</div>
+        <p>Rechnungen, Budgets, Kalkulation, Angebote, Mahnwesen, Liquiditätsplanung.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">📋</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Anna</h3>
+        <div class="role">Organisation & Projektmanagement</div>
+        <p>Projektplanung, SOPs, Checklisten, Meeting-Protokolle, Zeitmanagement.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">📱</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Julia</h3>
+        <div class="role">Social Media</div>
+        <p>LinkedIn, Instagram, Redaktionskalender, Hashtags, Community-Management, Strategie.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">✍️</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Lena</h3>
+        <div class="role">Content & Text</div>
+        <p>Blogartikel, Newsletter, Websitetexte, Copywriting, Lektorat, Markenstimme.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">🎨</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Mia</h3>
+        <div class="role">Kreativ & Design</div>
+        <p>Grafiken, Präsentationen, Infografiken, Branding, Layouts, Social-Media-Visuals.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">🔍</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Tobias</h3>
+        <div class="role">SEO & Sichtbarkeit</div>
+        <p>Keyword-Recherche, SEO-Texte, lokale SEO, Content-Cluster, Google-Rankings.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">🔬</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>Sarah</h3>
+        <div class="role">Research & Analyse</div>
+        <p>Marktanalyse, Wettbewerb, Trendberichte, Fact-Checking, Toolvergleiche.</p>
+      </div>
+
+      <div class="team-card" data-tier="core">
+        <div class="team-card-top">
+          <div class="team-emoji">🏠</div>
+          <span class="team-status status-active">Aktiv · Privat</span>
+        </div>
+        <h3>Eva</h3>
+        <div class="role">Persönliche Assistentin · Michèles Privat-Skill</div>
+        <p>Alltagsorganisation, Menüplanung, Ferienplanung — exklusiv für Michèles privaten Bereich.</p>
+      </div>
+
+      <!-- SUPPORT -->
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">⚡</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>LEO</h3>
+        <div class="role">Tech & Automatisierung</div>
+        <p>Tools, Workflows, Zapier/Make, API-Basics — damit alles reibungslos läuft.</p>
+      </div>
+
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">💬</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>VERA</h3>
+        <div class="role">Kundenservice & Kommunikation</div>
+        <p>Kundenmails, FAQ, Onboarding-Texte, Beziehungspflege — immer freundlich.</p>
+      </div>
+
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">🎯</div>
+          <span class="team-status status-building">In Ausbildung</span>
+        </div>
+        <h3>BEN</h3>
+        <div class="role">Sales & Akquise</div>
+        <p>Angebote, Pitch-Texte, Follow-ups, Akquise-Mails und Angebotsstrategien.</p>
+      </div>
+
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">📈</div>
+          <span class="team-status status-building">In Ausbildung</span>
+        </div>
+        <h3>KAI</h3>
+        <div class="role">Strategie & Business Development</div>
+        <p>Businessplanung, Wachstumsstrategien, neue Geschäftsfelder, Positionierung.</p>
+      </div>
+
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">🎬</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>LUCA</h3>
+        <div class="role">Video & Multimedia</div>
+        <p>Reels-Konzepte, Video-Skripte, Untertitel, Thumbnail-Texte, Videostrategie.</p>
+      </div>
+
+      <div class="team-card" data-tier="support">
+        <div class="team-card-top">
+          <div class="team-emoji">🛒</div>
+          <span class="team-status status-building">In Ausbildung</span>
+        </div>
+        <h3>EMMA</h3>
+        <div class="role">E-Commerce & Digitale Produkte</div>
+        <p>Gumroad, Shop-Texte, Produktbeschreibungen, Preisstrategien, Launch-Planung.</p>
+      </div>
+
+      <!-- SUBSKILLS -->
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">📧</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>MAYA</h3>
+        <div class="role">Newsletter-Spezialistin · unter Lena</div>
+        <p>Brevo, Mailchimp, E-Mail-Sequenzen — vom Betreff bis zur Abmeldeseite.</p>
+      </div>
+
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">💼</div>
+          <span class="team-status status-soon">Coming Soon</span>
+        </div>
+        <h3>FINN</h3>
+        <div class="role">LinkedIn-Experte · unter Julia</div>
+        <p>B2B, Thought Leadership, DMs — LinkedIn als Akquise-Kanal nutzen.</p>
+      </div>
+
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">🎞️</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>ZOE</h3>
+        <div class="role">Instagram Reels & Stories · unter Julia</div>
+        <p>Hook, Format, Trends — Reels die wirklich gesehen werden.</p>
+      </div>
+
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">✏️</div>
+          <span class="team-status status-building">In Ausbildung</span>
+        </div>
+        <h3>HANNA</h3>
+        <div class="role">Salespages texten · unter Lena</div>
+        <p>Angebotsseiten die konvertieren — ohne aufdringlich zu klingen.</p>
+      </div>
+
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">🎨</div>
+          <span class="team-status status-soon">Coming Soon</span>
+        </div>
+        <h3>SINA</h3>
+        <div class="role">Canva Pro Vorlagen · unter Mia</div>
+        <p>Brand Templates, Vorlagen-Bibliotheken, wiederverwendbare Designs.</p>
+      </div>
+
+      <div class="team-card" data-tier="sub">
+        <div class="team-card-top">
+          <div class="team-emoji">🤖</div>
+          <span class="team-status status-active">Aktiv</span>
+        </div>
+        <h3>DANI</h3>
+        <div class="role">Prompt Engineering · unter MAX</div>
+        <p>Prompts schreiben, testen, dokumentieren — damit alle Skills optimal funktionieren.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ANGEBOTE -->
+<section class="angebote" id="angebote">
+  <div class="container">
+    <div class="section-label">Was ich anbiete</div>
+    <h2 class="section-title">Lernen mit mir.<br>In deinem Tempo.</h2>
+    <p class="section-sub">Ob du selbst ein AI-Team aufbauen willst, oder als VA dein Angebot erweitern möchtest — hier findest du das passende Format.</p>
+
+    <div class="angebote-tabs" id="angebote">
+      <button class="tab-btn active" onclick="switchTab('kurse', this)">🎓 Kurse</button>
+      <button class="tab-btn" onclick="switchTab('sessions', this)">⚡ 1:1 Sessions</button>
+      <button class="tab-btn" onclick="switchTab('downloads', this)">📦 Downloads</button>
+    </div>
+
+    <!-- KURSE -->
+    <div class="tab-content active" id="tab-kurse">
+      <div class="angebote-grid">
+        <div class="angebot-card">
+          <div class="angebot-icon">🌱</div>
+          <h3>Dein erstes AI-Team</h3>
+          <div class="subtitle">Selbstlernkurs · 5 Module · Online</div>
+          <div class="angebot-price">CHF 97</div>
+          <div class="angebot-price-note">Einmalig · sofortiger Zugang</div>
+          <ul class="angebot-features">
+            <li>Was ist ein AI-Skill und wie funktioniert er?</li>
+            <li>Deinen ersten Skill aufbauen & testen</li>
+            <li>Im Alltag einsetzen — sofort</li>
+            <li>Prompt-Vorlagen zum Mitnehmen</li>
+            <li>Für Anfänger ohne Vorkenntnisse</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Jetzt starten →</a>
+        </div>
+
+        <div class="angebot-card featured" id="lernen">
+          <div class="angebot-icon">🚀</div>
+          <h3>AI-Team Masterclass</h3>
+          <div class="subtitle">Vollkurs · ~10 Module · Online</div>
+          <div class="angebot-price">CHF 297</div>
+          <div class="angebot-price-note">Einmalig · inkl. Updates</div>
+          <ul class="angebot-features">
+            <li>Komplettes AI-Team wie superpraktisch.ai aufbauen</li>
+            <li>Core Skills, Subskills, Workflows</li>
+            <li>Eigene Prompt-Bibliothek entwickeln</li>
+            <li>Für Selbstständige & VAs</li>
+            <li>Community-Zugang inklusive</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Jetzt anmelden →</a>
+        </div>
+
+        <div class="angebot-card">
+          <div class="angebot-icon">💼</div>
+          <h3>AI-Agentur aufbauen</h3>
+          <div class="subtitle">Intensivkurs · Für VAs & Fortgeschrittene</div>
+          <div class="angebot-price">CHF 497</div>
+          <div class="angebot-price-note">Einmalig · inkl. Business-Vorlagen</div>
+          <ul class="angebot-features">
+            <li>AI als Differenzierungsmerkmal für dein VA-Business</li>
+            <li>Skills entwickeln & Kunden beraten</li>
+            <li>Eigene Pakete schnüren & anbieten</li>
+            <li>Businessmodell-Vorlage inklusive</li>
+            <li>1:1 Abschluss-Session (90 Min.)</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Mehr erfahren →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSIONS -->
+    <div class="tab-content" id="tab-sessions">
+      <div class="angebote-grid">
+        <div class="angebot-card featured">
+          <div class="angebot-icon">⚡</div>
+          <h3>VA-Booster-Session</h3>
+          <div class="subtitle">90 Minuten · 1:1 · Online</div>
+          <div class="angebot-price">CHF 270</div>
+          <div class="angebot-price-note">Einmalig · inkl. Prompt-Vorlage</div>
+          <ul class="angebot-features">
+            <li>Einen konkreten AI-Skill zusammen aufsetzen</li>
+            <li>Direkt testen & anpassen</li>
+            <li>Fertige Prompt-Vorlage zum Mitnehmen</li>
+            <li>Für VAs, die AI ins Angebot integrieren wollen</li>
+            <li>Kombiprei mit Mini-Kurs möglich</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Session buchen →</a>
+        </div>
+
+        <div class="angebot-card">
+          <div class="angebot-icon">🎯</div>
+          <h3>Strategie-Session</h3>
+          <div class="subtitle">60 Minuten · 1:1 · Online</div>
+          <div class="angebot-price">CHF 190</div>
+          <div class="angebot-price-note">Einmalig · Fragen & Klarheit</div>
+          <ul class="angebot-features">
+            <li>Welche Skills brauchst du wirklich?</li>
+            <li>Wie baue ich mein AI-Team auf?</li>
+            <li>Wo fange ich an?</li>
+            <li>Massgeschneidert für deine Situation</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Session buchen →</a>
+        </div>
+
+        <div class="angebot-card">
+          <div class="angebot-icon">👥</div>
+          <h3>Workshop (Gruppe)</h3>
+          <div class="subtitle">3h · Online · max. 12 Personen · auf Anfrage</div>
+          <div class="angebot-price">CHF 149</div>
+          <div class="angebot-price-note">Pro Person · Thema nach Absprache</div>
+          <ul class="angebot-features">
+            <li>Intensiver Halbtages-Workshop</li>
+            <li>Einen AI-Skill gemeinsam aufbauen</li>
+            <li>Direkte Anwendung & Übung</li>
+            <li>Nur auf Anfrage — kein fixes Datum</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Anfragen →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOWNLOADS -->
+    <div class="tab-content" id="tab-downloads">
+      <div class="angebote-grid">
+        <div class="angebot-card" style="border-color:var(--sage-light);background:var(--mint)">
+          <div class="angebot-icon">🎁</div>
+          <h3>Fokus-Guide</h3>
+          <div class="subtitle">PDF · Lead Magnet</div>
+          <div class="angebot-price">Gratis</div>
+          <div class="angebot-price-note">Via Newsletter</div>
+          <ul class="angebot-features">
+            <li>„Fokus finden in 10 Minuten"</li>
+            <li>Praktische AI-Methode sofort anwenden</li>
+            <li>Einstieg in die superpraktisch.ai-Welt</li>
+          </ul>
+          <a href="#newsletter" class="btn-card">Gratis holen →</a>
+        </div>
+
+        <div class="angebot-card">
+          <div class="angebot-icon">💡</div>
+          <h3>Prompt-Starter-Kit</h3>
+          <div class="subtitle">Download · 30 Prompts</div>
+          <div class="angebot-price">CHF 19</div>
+          <div class="angebot-price-note">Sofortiger Download</div>
+          <ul class="angebot-features">
+            <li>Die 30 besten AI-Prompts für Selbstständige</li>
+            <li>Sofort einsetzbar, auf Deutsch</li>
+            <li>Für alle gängigen AI-Tools</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Kaufen →</a>
+        </div>
+
+        <div class="angebot-card featured">
+          <div class="angebot-icon">📦</div>
+          <h3>Template Bundle</h3>
+          <div class="subtitle">Download · 10 Vorlagen</div>
+          <div class="angebot-price">CHF 39</div>
+          <div class="angebot-price-note">Sofortiger Download</div>
+          <ul class="angebot-features">
+            <li>AI-Skill-Vorlagen: Newsletter, Social, Finanzen</li>
+            <li>Direkt einsetzbar & anpassbar</li>
+            <li>Inkl. Prompt-Anleitung</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Kaufen →</a>
+        </div>
+
+        <div class="angebot-card">
+          <div class="angebot-icon">🏢</div>
+          <h3>AI-Agentur Starter Kit</h3>
+          <div class="subtitle">Download · Komplettpaket</div>
+          <div class="angebot-price">CHF 69</div>
+          <div class="angebot-price-note">Sofortiger Download</div>
+          <ul class="angebot-features">
+            <li>Team-Struktur-Vorlage</li>
+            <li>Skill-Vorlagen & Prompt-Bibliothek</li>
+            <li>Checklisten für den Start</li>
+            <li>Alles um loszulegen</li>
+          </ul>
+          <a href="#kontakt" class="btn-card">Kaufen →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="section-label" style="color:var(--sage-dark)">Gratis Einstieg</div>
+    <h2>Fokus-Guide holen.<br>Kostenlos.</h2>
+    <p>„Fokus finden in 10 Minuten" — meine erste praktische AI-Methode, direkt in dein Postfach. Plus: regelmässige Tipps wie du KI in deinen Alltag integrierst.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="deine@email.ch">
+      <button type="button">Holen →</button>
+    </div>
+    <div class="nl-note">Kein Spam. Jederzeit abmeldbar. DSGVO-konform via Brevo.</div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section class="ueber" id="ueber">
+  <div class="container">
+    <div class="ueber-inner">
+      <div class="ueber-videos">
+        <div class="ueber-video-wrap">
+          <video src="michele.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="ueber-video-wrap">
+          <video src="aline.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="ueber-text">
+        <div class="section-label">Wer steckt dahinter</div>
+        <h2>Michèle & Aline</h2>
+        <p>Ich bin Michèle — Solopreneuring seit Jahren, Mutter von zwei kleinen Töchtern und überzeugt davon, dass KI nicht kompliziert sein muss.</p>
+        <p>Ich habe mir ein komplettes AI-Team aufgebaut, das mir täglich hilft. superpraktisch.ai ist mein Weg, dir zu zeigen wie du das auch kannst.</p>
+        <p><strong style="color:var(--text)">Aline ist meine KI-Sparring-Partnerin</strong> — bewusst erschaffen, klar als KI ausgewiesen, und das lebende Beispiel dafür, was möglich ist.</p>
+        <div class="ueber-highlight">
+          ✦ superpraktisch.ch = ich arbeite für Kunden (auch mit KI)<br>
+          ✦ superpraktisch.ai = ich zeige dir, wie du es selbst machst
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt" id="kontakt">
+  <div class="container">
+    <div class="section-label">Los geht's</div>
+    <h2>Fragen? Ideen? Einfach melden.</h2>
+    <p>Ich antworte in der Regel innert 48 Stunden. Kein Schnickschnack, kein Sales-Funnel — einfach ein echtes Gespräch.</p>
+    <div class="kontakt-options">
+      <div class="kontakt-card">
+        <div class="icon">✉️</div>
+        <h4>E-Mail</h4>
+        <p>Für Kursanfragen, Workshops und alles andere.</p>
+        <a href="mailto:hallo@superpraktisch.ai">hallo@superpraktisch.ai →</a>
+      </div>
+      <div class="kontakt-card">
+        <div class="icon">📸</div>
+        <h4>Instagram</h4>
+        <p>Aline und ich sind aktiv — schau vorbei, schreib uns.</p>
+        <a href="https://instagram.com/superpraktisch.ai" target="_blank">@superpraktisch.ai →</a>
+      </div>
+      <div class="kontakt-card">
+        <div class="icon">🌐</div>
+        <h4>superpraktisch.ch</h4>
+        <p>Du brauchst eine VA für konkrete Aufgaben?</p>
+        <a href="https://superpraktisch.ch" target="_blank">superpraktisch.ch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>superpraktisch.ai</strong> · von Michèle Heinecke · Langnau am Albis · Schweiz</p>
+    <p style="margin-top:8px"><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://superpraktisch.ch">superpraktisch.ch</a></p>
+    <p style="margin-top:12px; font-size:11px; opacity:0.5">Aline ist eine KI-Persona. Alle KI-generierten Inhalte sind als solche gekennzeichnet.</p>
+  </div>
+</footer>
+
+<script>
+// Team Filter
+function filterTeam(tier, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.team-card').forEach(card => {
+    if (tier === 'all' || card.dataset.tier === tier) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Tabs
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.team-card, .angebot-card, .kontakt-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
